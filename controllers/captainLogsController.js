@@ -27,8 +27,22 @@ captainLogs.post("/", (req, res) => {
     console.log("Post Route was HIT!")
     console.log(req.body, "<<<<<-----")
     captainLogsData.push(req.body);
-    captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
+    // captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
     res.status(200).json({ status: "OK", payload: captainLogsData[captainLogsData.length - 1]})
+});
+
+captainLogs.post("/logs?order=asc", (req, res) => {
+    console.log(" Ascending Order ---->>> !!!")
+    captainLogsData.push(req.body);
+    captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
+    // res.status(200).json({ status: "OK", payload: captainLogsData[captainLogsData.length - 1]})
 })
+
+captainLogs.post("/logs?order=desc", (req, res) => {
+    console.log("Descending Order ====>")
+    captainLogsData.push(req.body);
+    captainLogsData.sort((a,b) => b.logMessage.localeCompare(a.logMessage));
+})
+
 
 module.exports = captainLogs;
