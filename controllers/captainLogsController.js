@@ -27,6 +27,7 @@ captainLogs.post("/", (req, res) => {
     console.log("Post Route was HIT!")
     console.log(req.body, "<<<<<-----")
     captainLogsData.push(req.body);
+    captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
     res.status(200).json({ status: "OK", payload: captainLogsData[captainLogsData.length - 1]})
 })
 
