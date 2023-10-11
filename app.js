@@ -16,4 +16,6 @@ app.get("*", (req, res) => {
     res.status(404).json({error: "no page is found"})
 })
 
+// res.redirect()
+
 module.exports = app;
