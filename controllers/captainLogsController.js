@@ -9,3 +9,5 @@ captainLogs.get("/", (req, res) => {
 
     res.json(captainLogsData)
 })
+
+module.exports = captainLogs;
