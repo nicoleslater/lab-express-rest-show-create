@@ -8,7 +8,7 @@ captainLogs.get("/", (req, res) => {
     console.log("Sending all captain log data")
 
     res.json(captainLogsData);
-})
+});
 
 
 captainLogs.get("/:index", (req, res) => {
@@ -20,7 +20,7 @@ captainLogs.get("/:index", (req, res) => {
     } else {
         res.status(404).send("No log at that index");
     }
-})
+});
 
 
 captainLogs.post("/", (req, res) => {
