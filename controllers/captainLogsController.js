@@ -10,6 +10,13 @@ captainLogs.get("/", (req, res) => {
     res.json(captainLogsData);
 });
 
+// captainLogs.post("/", (req, res) => {
+//     const newLog = req.body;
+//     console.log(newLog)
+//     captainLogsData.push(newLog);
+//     res.status(200).json(newLog);
+// })
+
 
 captainLogs.get("/:index", (req, res) => {
     const {index} = req.params;
