@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
     res.send(`Welcome to Our Express App.`);
 })
 
-app.get("*", (req, res) => {
-    res.status(404).json({error: "no page is found"})
+app.get("404", (req, res) => {
+    res.send("Error")
 })
 
 // res.redirect()

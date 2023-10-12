@@ -61,10 +61,10 @@ captainLogs.delete("/:arrayIndex", (req, res) => {
 
     if (captainLogsData[arrayIndex]){
         
-        const deletedLog = captainLogsData.splice[arrayIndex, 1]
-        res.status(200).json(deletedLog[0])
+        const deletedLog = captainLogsData.splice[arrayIndex, 1];
+        res.status(200).json(deletedLog[0]);
     } else {
-        res.status(404).json({error: "Could not locate log "});
+        res.redirect(404);
     }
 
   
@@ -78,7 +78,7 @@ console.log("UPDATED ROUTE ---->>>>>")
         captainLogsData[arrayIndex] = req.body
     res.status(200).json((captainLogsData[arrayIndex]));
     } else {
-        res.status(404).json({error: "Could not locate log to be updated"});
+        res.redirect(404);
     }
    
 });
