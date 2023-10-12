@@ -48,5 +48,13 @@ captainLogs.post("/logs?order=desc", (req, res) => {
     captainLogsData.sort((a,b) => b.logMessage.localeCompare(a.logMessage));
 })
 
+//  splice changes the array and returns the item that was removed in a new array 
+// captainLogs.delete("/:arrayIndex", (req, res) => {
+//     const { arrayIndex } = req.params;
+
+//     const deletedLog = captainLogsData.splice[arrayIndex, 1]
+//     res.status(200).json(deletedLog[0])
+// })
+
 
 module.exports = captainLogs;
