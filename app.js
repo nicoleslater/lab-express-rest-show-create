@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
     res.send(`Welcome to Our Express App.`);
 })
 
-app.get("404", (req, res) => {
+app.get("/404", (req, res) => {
     res.send("Error")
 })
 
