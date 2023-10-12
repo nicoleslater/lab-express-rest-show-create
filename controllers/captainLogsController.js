@@ -4,6 +4,14 @@ const captainLogs = express.Router();
 
 const captainLogsData = require("../model/log");
 
+captainLogs.post("/", (req, res) => {
+    console.log("Post Route was HIT!")
+    console.log(req.body, "<<<<<-----")
+    captainLogsData.push(req.body);
+    // captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
+    res.status(200).json({ status: "OK", payload: captainLogsData[captainLogsData.length - 1]})
+});
+
 captainLogs.get("/", (req, res) => {
     console.log("Sending all captain log data")
 
@@ -30,13 +38,13 @@ captainLogs.get("/:index", (req, res) => {
 });
 
 
-captainLogs.post("/", (req, res) => {
-    console.log("Post Route was HIT!")
-    console.log(req.body, "<<<<<-----")
-    captainLogsData.push(req.body);
-    // captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
-    res.status(200).json({ status: "OK", payload: captainLogsData[captainLogsData.length - 1]})
-});
+// captainLogs.post("/", (req, res) => {
+//     console.log("Post Route was HIT!")
+//     console.log(req.body, "<<<<<-----")
+//     captainLogsData.push(req.body);
+//     // captainLogsData.sort((a,b) => a.logMessage.localeCompare(b.logMessage));
+//     res.status(200).json({ status: "OK", payload: captainLogsData[captainLogsData.length - 1]})
+// });
 
 // captainLogs.post("/logs?order=asc", (req, res) => {
 //     console.log(" Ascending Order ---->>> !!!")
