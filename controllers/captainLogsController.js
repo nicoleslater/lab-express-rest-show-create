@@ -49,12 +49,32 @@ captainLogs.post("/logs?order=desc", (req, res) => {
 })
 
 //  splice changes the array and returns the item that was removed in a new array 
-// captainLogs.delete("/:arrayIndex", (req, res) => {
-//     const { arrayIndex } = req.params;
+captainLogs.delete("/:arrayIndex", (req, res) => {
+    const { arrayIndex } = req.params;
 
-//     const deletedLog = captainLogsData.splice[arrayIndex, 1]
-//     res.status(200).json(deletedLog[0])
-// })
+    if (captainLogsData[arrayIndex]){
+        
+        const deletedLog = captainLogsData.splice[arrayIndex, 1]
+        res.status(200).json(deletedLog[0])
+    } else {
+        res.status(404).json({error: "Could not locate log "});
+    }
+
+  
+});
+// Update Route - localhost:4444/logs/:id
+captainLogs.put("/:arrayIndex", (req, res) => {
+console.log("UPDATED ROUTE ---->>>>>")
+    const { arrayIndex } = req.params;
+
+    if(captainLogsData[arrayIndex]){
+        captainLogsData[arrayIndex] = req.body
+    res.status(200).json((captainLogsData[arrayIndex]));
+    } else {
+        res.status(404).json({error: "Could not locate log to be updated"});
+    }
+   
+});
 
 
 module.exports = captainLogs;
