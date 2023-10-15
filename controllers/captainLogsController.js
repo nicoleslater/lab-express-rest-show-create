@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require("cors");
+application.use(cors());
 
 const captainLogs = express.Router();
 
